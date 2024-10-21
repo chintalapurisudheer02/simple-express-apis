@@ -1,3 +1,25 @@
 
+steps:
+  # Step 1: Build the Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/just-oarlock-423806-a6/my-express-api', '.']
+  
+  # Step 2: Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'my-express-api'  # Replace with your Cloud Run service name
+      - '--image'
+      - 'gcr.io/just-oarlock-423806-a6/my-express-api'
+      - '--platform'
+      - 'managed'
+      - '--region'
+      - 'us-central1'  # Specify your preferred region
+      - '--allow-unauthenticated'  # Optional: Remove for authentication
+
 options:
-  logging: CLOUD_LOGGING_ONLY
+  logging: CLOUD_LOGGING_ONLY  # Use Cloud Logging for build logs
+
+images:
+  - 'gcr.io/just-oarlock-423806-a6/my-express-api'
