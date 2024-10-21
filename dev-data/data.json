@@ -1,0 +1,15 @@
+[
+    {
+      "id": 1,
+      "productName": "Fresh Avocados",
+      "description": "A ripe avocado yields to gentle pressure when held...",
+      "price": 6.50
+    },
+    {
+      "id": 2,
+      "productName": "Goat and Sheep Cheese",
+      "description": "Creamy and distinct in flavor, goat cheese...",
+      "price": 5.00
+    }
+  ]
+  
